@@ -12,25 +12,50 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 🪣 Step 1: Checkout Repository
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # ⚙️ Step 2: Set up Node.js with NPM cache
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: 20
+          cache: 'npm'
 
+      # 💾 Step 3: Cache Playwright browsers
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-browsers
+          restore-keys: |
+            ${{ runner.os }}-playwright-browsers
+
+      # 📦 Step 4: Install project dependencies
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
+      # 🌐 Step 5: Install Playwright browsers (downloads only if not cached)
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
+      # 🧪 Step 6: Run Cucumber + Playwright tests
       - name: Run Tests
         run: npm run test
 
-      - name: Upload Test Report
+      # 📁 Step 7: Upload JSON/HTML reports as artifacts
+      - name: Upload Cucumber Reports
+        if: always()  # Upload even if tests fail
         uses: actions/upload-artifact@v4
         with:
-          name: cucumber-report
+          name: cucumber-reports
           path: reports/
+
+      # 🧾 Step 8: (Optional) Show test summary in GitHub Actions UI
+      - name: Display Cucumber Summary in Actions
+        if: always()
+        run: |
+          echo "✅ Cucumber Test Summary"
+          echo "Reports generated in: reports/"
+          echo "Download artifacts from the 'Artifacts' section above."

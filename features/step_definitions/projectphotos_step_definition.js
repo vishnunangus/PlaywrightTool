@@ -2,7 +2,7 @@
 const { Given, When, Then, } = require('@cucumber/cucumber');
 const { expect } = require('playwright/test');
 const { POManager } = require('../../page_object/POManager');
-const { ProjectPhotosPage } = require('../../page_object/Projectphotospage');
+const { ProjectPhotosPage } = require('../../page_object/ProjectPhotosPage');
 const path = require('path');
 const fs = require('fs');
 const { OpsPortalPage } = require('../../page_object/OpsPortalPage');
