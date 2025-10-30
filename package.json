@@ -1,0 +1,31 @@
+{
+  "name": "ds_playwright",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "install-browsers": "npx playwright install --with-deps",
+    "test": "cucumber-js --require ./features/step_definitions/**/*.js --require ./features/support/**/*.js --format json:reports/cucumber_report.json",
+    "report": "node generate-html-report.js",
+    "test:now": "cucumber-js --tags \"@Now\" --format json:reports/cucumber_report.json",
+    "test:regression": "cucumber-js --tags \"@regression\" --format json:reports/cucumber_report.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.2.0",
+    "@playwright/test": "^1.55.0",
+    "@types/cucumber-html-reporter": "^5.0.0",
+    "@types/node": "^24.5.2",
+    "@types/xlsx": "^0.0.35",
+    "cross-env": "^10.0.0",
+    "cucumber-html-reporter": "^6.0.0",
+    "playwright": "^1.55.0"
+  },
+  "dependencies": {
+    "csv-parser": "^3.2.0",
+    "exceljs": "^4.4.0",
+    "xlsx": "^0.18.5"
+  }
+}

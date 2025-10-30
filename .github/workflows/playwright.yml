@@ -1,0 +1,36 @@
+name: Playwright Test Automation
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '24'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Tests
+        run: npm run test
+
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cucumber-report
+          path: reports/

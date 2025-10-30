@@ -1,0 +1,10 @@
+# Node.js dependencies
+node_modules/
+.gitignore/
+
+# VS Code settings
+.vscode/
+
+# Playwright output
+test-results/
+playwright-report/
