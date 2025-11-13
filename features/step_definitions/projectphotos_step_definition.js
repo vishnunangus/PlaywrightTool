@@ -384,7 +384,7 @@ Then('fetch the first project name and first project photo count', async functio
 Then('fetch the photo count on the project dashboard', async function () {
 
     this.dashboardprojectphotocount = await this.projectdashboardpage.fetch_project_dashboard_photocount();
-    console.log("Project dashboard photo count:" , this.dashboardprojectphotocount);
+    console.log("Project dashboard photo count:", this.dashboardprojectphotocount);
 
 
 });
@@ -392,8 +392,8 @@ Then('fetch the photo count on the project dashboard', async function () {
 
 Then('fetch the photo gallery count', async function () {
 
-this.projectphotogallerycount = await this.projectphotospage.fetchPhotoCount();
-console.log("Project  photo gallery count:" , this.projectphotogallerycount);
+    this.projectphotogallerycount = await this.projectphotospage.fetchPhotoCount();
+    console.log("Project  photo gallery count:", this.projectphotogallerycount);
 
 });
 
@@ -401,9 +401,9 @@ console.log("Project  photo gallery count:" , this.projectphotogallerycount);
 Then('validate the photo gallery count got incremented by one', async function () {
 
 
-this.finalgallerycount = await this.projectphotospage.fetchPhotoCount();
-expect(this.finalgallerycount).toBe(this.projectphotogallerycount+1)
-console.log("Final gallery count:",this.finalgallerycount);
+    this.finalgallerycount = await this.projectphotospage.fetchPhotoCount();
+    expect(this.finalgallerycount).toBe(this.projectphotogallerycount + 1)
+    console.log("Final gallery count:", this.finalgallerycount);
 
 });
 
@@ -415,11 +415,11 @@ Then('click on back button', async function () {
 });
 
 
-Then('validate the photo count on the project dashboard page incremented by one', async  function () {
+Then('validate the photo count on the project dashboard page incremented by one', async function () {
 
- this.finaldashboardprojectphotocount = await this.projectdashboardpage.fetch_project_dashboard_photocount();
-expect(this.finaldashboardprojectphotocount).toBe(this.dashboardprojectphotocount+1)
-console.log("Final project count:",this.finaldashboardprojectphotocount);
+    this.finaldashboardprojectphotocount = await this.projectdashboardpage.fetch_project_dashboard_photocount();
+    expect(this.finaldashboardprojectphotocount).toBe(this.dashboardprojectphotocount + 1)
+    console.log("Final project count:", this.finaldashboardprojectphotocount);
 
 });
 
@@ -438,12 +438,66 @@ Then('Enter the fetched first project name in the search bar', async function ()
 
 });
 
-Then('Validate the photos count on project card page got incremented by one', async function ()
-
-{
+Then('Validate the photos count on project card page got incremented by one', async function () {
     this.finalprojectphotocount = await this.allprojectsdashboardpage.fetch_project_photoscount();
-    expect(this.finalprojectphotocount).toBe(this.firstprojectphotocount+1)
-console.log("Final all projects dashboard count:",this.finalprojectphotocount);
+    expect(this.finalprojectphotocount).toBe(this.firstprojectphotocount + 1)
+    console.log("Final all projects dashboard count:", this.finalprojectphotocount);
 
 
 });
+
+
+Then('fetch the project which has zero photos', async function () {
+
+    const allprojecttitles = await this.allprojectsdashboardpage.fetch_all_projectname();
+
+    const allprojectphotocount = await this.allprojectsdashboardpage.fetch_all_project_photoscount_list();
+
+    for (let i = 0; i <= allprojectphotocount.length; i++) {
+        if (allprojectphotocount[i] === 0) {
+            console.log(`Found project with zero photos: ${allprojecttitles[i]}`);
+
+            const titleLocator = this.allprojectsdashboardpage.projectname.nth(i);
+            await titleLocator.scrollIntoViewIfNeeded();
+            await titleLocator.click();
+
+            break;
+
+        }
+    }
+
+});
+
+Then('click on that project', async function () {
+
+    console.log("Cicked on the project with zero photo count and proceeding further")
+
+});
+
+Then('scroll down to the global photos view', async function () {
+
+    console.log("Scrolling down to the view")
+
+
+
+});
+
+Then('Click on upload photos button on global view', async function () {
+
+    await this.projectdashboardpage.clickuploadphotobtn();
+
+});
+
+Then('upload a photo from loacal system', async function () {
+
+    console.log("uploaeded the photo successfully")
+
+});
+
+Then('validate the photo is uploaded successfully globally and success message is displayed', async function () {
+
+
+    await this.projectdashboardpage.validatephotosSuccessMessage();
+
+});
+

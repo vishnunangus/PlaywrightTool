@@ -1,4 +1,6 @@
+const path = require("path");
 const { expect } = require("playwright/test");
+
 
 class ProjectDashboardPage{
 
@@ -13,6 +15,8 @@ class ProjectDashboardPage{
         this.page = page;
         this.project_dashboard_photocount = page.locator("button[id='photos-button-id'] span div");
         this.back_btn = page.locator("span[id='back-button-id']");
+        this.uploadphotobtn = page.getByRole('button', { name: 'Upload Photos' });
+
 
 
 
@@ -31,6 +35,24 @@ class ProjectDashboardPage{
     {
         await this.back_btn.click();
 
+    }
+    async clickuploadphotobtn()
+    {
+
+        await this.uploadphotobtn.waitFor({state:'visible'});
+        await expect(this.uploadphotobtn).toBeEnabled();
+        await expect(this.uploadphotobtn).toBeVisible();
+        await this.uploadphotobtn.scrollIntoViewIfNeeded();
+        const filepath = path.join(__dirname, '../test-data/Photos/Photo3.jpeg')
+        await this.page.setInputFiles("#contained-button-file-empty",filepath);
+
+    }
+
+     async validatephotosSuccessMessage() {
+
+        const snackbar = this.page.locator('div[aria-describedby="notistack-snackbar"]').first();
+        await expect(snackbar).toHaveText('The photo has been uploaded successfully', { timeout: 10000 });
+        await expect(snackbar).toBeVisible();
     }
 }
 
