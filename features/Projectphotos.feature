@@ -271,7 +271,7 @@ Feature: project photos Module
 
 
 
-@Regression 
+@Regression
 
     Scenario Outline: Validate the photo count matches on project card, project dashboard, project gallery after uploading a photo
 
@@ -297,6 +297,32 @@ Feature: project photos Module
         Then click on back button from project dashboard page
         And Enter the fetched first project name in the search bar
         Then Validate the photos count on project card page got incremented by one
+
+
+        Examples:
+            | username                      | password    |
+            | vishnu.nangunuri@kanerika.com | Viya121898@ |
+
+
+
+@Regression
+
+    Scenario Outline: Validate user can upload photo from project global level using NUX
+
+        Given I open the DS application
+        When I login with "<username>" and "<password>"
+        Then I Click on Login button
+        And Click on Launch button
+        Then Validate user logged in to the DS Homepage
+        And Validate the user is logged in with Tennessee Dot
+        And switch to ops portal on clicking switch button
+        Then fetch the project which has zero photos
+        Then click on that project
+        And scroll down to the global photos view
+        And Click on upload photos button on global view
+        Then upload a photo from loacal system
+        Then validate the photo is uploaded successfully globally and success message is displayed
+        
 
 
         Examples:

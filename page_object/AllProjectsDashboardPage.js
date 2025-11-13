@@ -26,16 +26,36 @@ class AllProjectsDashboardPage{
     {
         await this.page.waitForLoadState('networkidle')
         const projectname = await this.projectname.first().innerText();
-        return projectname
+        return projectname;
 
     }
 
+     async fetch_all_projectname()
+    {
+        await this.page.waitForLoadState('networkidle')
+        const projectnames = await this.projectname.allTextContents();
+        return projectnames;
+
+    }
+
+    async clickonproject()
+    {
+        await this.page.waitForLoadState('networkidle')
+        await this.projectname.click();
+    }
     async fetch_project_photoscount()
     {
         await this.page.waitForLoadState('networkidle')
         const count = await this.project_card_photocount.first().innerText();
         const actualcount = parseInt(count, 10);
         return actualcount;
+    }
+
+    async fetch_all_project_photoscount_list()
+    {
+        await this.page.waitForLoadState('networkidle')
+        const allproject_counts = await this.project_card_photocount.allTextContents();
+        return allproject_counts.map(count => Number(count.trim()));
     }
 
 }

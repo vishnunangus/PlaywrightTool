@@ -23,7 +23,7 @@ class CustomWorld {
 
 
   async launchBrowser() {
-    this.browser = await chromium.launch({ headless: true });
+    this.browser = await chromium.launch({ headless: false });
     this.context = await this.browser.newContext();
     this.page = await this.context.newPage();
     this.POManager = new POManager(this.page);
