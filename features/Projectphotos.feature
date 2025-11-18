@@ -322,9 +322,8 @@ Feature: project photos Module
         And Click on upload photos button on global view
         Then upload a photo from loacal system
         Then validate the photo is uploaded successfully globally and success message is displayed
+
         
-
-
         Examples:
             | username                      | password    |
             | vishnu.nangunuri@kanerika.com | Viya121898@ |
