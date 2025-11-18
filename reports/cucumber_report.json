@@ -1,202 +1,215 @@
 [
   {
-    "description": "    The user should be able to manage project photos by uploading, previewing, downloading, and deleting them.",
+    "description": "",
     "elements": [
       {
         "description": "",
-        "id": "project-photos-module;validate-user-can-upload-photo-from-project-global-level-using-nux",
+        "id": "groups-module;validate-a-group-can-be-created",
         "keyword": "Scenario Outline",
-        "line": 330,
-        "name": "Validate user can upload photo from project global level using NUX",
+        "line": 25,
+        "name": "Validate a group can be created",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1010991100
+              "duration": 2008217499
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 312,
+            "line": 7,
             "name": "I open the DS application",
             "match": {
               "location": "features\\step_definitions\\loginpage_Step_Definition.js:7"
             },
             "result": {
               "status": "passed",
-              "duration": 4329177999
+              "duration": 4542636099
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 313,
+            "line": 8,
             "name": "I login with \"vishnu.nangunuri@kanerika.com\" and \"Viya121898@\"",
             "match": {
               "location": "features\\step_definitions\\loginpage_Step_Definition.js:16"
             },
             "result": {
               "status": "passed",
-              "duration": 2182049700
+              "duration": 3235926199
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 314,
+            "line": 9,
             "name": "I Click on Login button",
             "match": {
               "location": "features\\step_definitions\\loginpage_Step_Definition.js:22"
             },
             "result": {
               "status": "passed",
-              "duration": 74494500
+              "duration": 144600998
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 315,
+            "line": 10,
             "name": "Click on Launch button",
             "match": {
               "location": "features\\step_definitions\\loginpage_Step_Definition.js:28"
             },
             "result": {
               "status": "passed",
-              "duration": 7264830500
+              "duration": 10357647698
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 316,
+            "line": 11,
             "name": "Validate user logged in to the DS Homepage",
             "match": {
               "location": "features\\step_definitions\\loginpage_Step_Definition.js:34"
             },
             "result": {
               "status": "passed",
-              "duration": 8959663698
+              "duration": 11772030599
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 317,
+            "line": 12,
             "name": "Validate the user is logged in with Tennessee Dot",
             "match": {
               "location": "features\\step_definitions\\projectphotos_step_definition.js:246"
             },
             "result": {
               "status": "passed",
-              "duration": 973098000
+              "duration": 1162226600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I click on the Groups tab",
+            "match": {
+              "location": "features\\step_definitions\\groups_step_definition.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 192329799
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 318,
-            "name": "switch to ops portal on clicking switch button",
+            "line": 14,
+            "name": "Validate that I am on the groups page",
             "match": {
-              "location": "features\\step_definitions\\projectphotos_step_definition.js:12"
+              "location": "features\\step_definitions\\groups_step_definition.js:11"
             },
             "result": {
               "status": "passed",
-              "duration": 5536951000
+              "duration": 13759398
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 319,
-            "name": "fetch the project which has zero photos",
+            "line": 15,
+            "name": "I click on create group button",
             "match": {
-              "location": "features\\step_definitions\\projectphotos_step_definition.js:450"
+              "location": "features\\step_definitions\\groups_step_definition.js:16"
             },
             "result": {
               "status": "passed",
-              "duration": 198632000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 320,
-            "name": "click on that project",
-            "match": {
-              "location": "features\\step_definitions\\projectphotos_step_definition.js:473"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1548399
+              "duration": 141448598
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 321,
-            "name": "scroll down to the global photos view",
+            "line": 16,
+            "name": "I enter the Group name as \"Group Name\"",
             "match": {
-              "location": "features\\step_definitions\\projectphotos_step_definition.js:479"
+              "location": "features\\step_definitions\\groups_step_definition.js:21"
             },
             "result": {
               "status": "passed",
-              "duration": 1097799
+              "duration": 63594300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "I enter the Group description as \"Group Description\"",
+            "match": {
+              "location": "features\\step_definitions\\groups_step_definition.js:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 49573699
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 322,
-            "name": "Click on upload photos button on global view",
+            "line": 18,
+            "name": "I click on save button while group creation",
             "match": {
-              "location": "features\\step_definitions\\projectphotos_step_definition.js:487"
+              "location": "features\\step_definitions\\groups_step_definition.js:37"
             },
             "result": {
               "status": "passed",
-              "duration": 2536131199
+              "duration": 91685300
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 323,
-            "name": "upload a photo from loacal system",
+            "line": 19,
+            "name": "I validate the success message for the group creation",
             "match": {
-              "location": "features\\step_definitions\\projectphotos_step_definition.js:493"
+              "location": "features\\step_definitions\\groups_step_definition.js:42"
             },
             "result": {
               "status": "passed",
-              "duration": 921099
+              "duration": 907637898
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "I click on back button",
+            "match": {
+              "location": "features\\step_definitions\\groups_step_definition.js:47"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 113287499
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 324,
-            "name": "validate the photo is uploaded successfully globally and success message is displayed",
+            "line": 21,
+            "name": "Validate the created is present in the list of groups",
             "match": {
-              "location": "features\\step_definitions\\projectphotos_step_definition.js:499"
+              "location": "features\\step_definitions\\groups_step_definition.js:52"
             },
             "result": {
               "status": "passed",
-              "duration": 1899270399
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 325,
-            "name": "validate the Global photo gallery count got incremented by one",
-            "match": {
-              "location": "features\\step_definitions\\projectphotos_step_definition.js:506"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 289499
+              "duration": 953171399
             }
           },
           {
@@ -204,28 +217,28 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 99900
+              "duration": 302100
             }
           }
         ],
         "tags": [
           {
             "name": "@Regression",
-            "line": 308
+            "line": 3
           },
           {
             "name": "@Now",
-            "line": 308
+            "line": 3
           }
         ],
         "type": "scenario"
       }
     ],
-    "id": "project-photos-module",
+    "id": "groups-module",
     "line": 1,
     "keyword": "Feature",
-    "name": "project photos Module",
+    "name": "Groups Module",
     "tags": [],
-    "uri": "features\\Projectphotos.feature"
+    "uri": "features\\Groups.feature"
   }
 ]

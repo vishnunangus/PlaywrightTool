@@ -17,6 +17,7 @@ class CustomWorld {
     this.opsportalpage = null;
     this.allprojectsdashboardpage = null;
     this.projectdashboardpage = null;
+    this.groupspage = null;
 
 
   }
@@ -33,6 +34,7 @@ class CustomWorld {
     this.opsportalpage = this.POManager.getOpsPortalPage();
     this.allprojectsdashboardpage = this.POManager.getAllProjectsDashboardPage();
     this.projectdashboardpage = this.POManager.getProjectDashboardPage();
+    this.groupspage = this.POManager.getGroupsPage();
 
   }
 }

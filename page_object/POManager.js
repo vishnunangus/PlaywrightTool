@@ -5,6 +5,7 @@ const { ProjectPhotosPage } = require('../page_object/ProjectPhotosPage')
 const { OpsPortalPage } = require('../page_object/OpsPortalPage')
 const { AllProjectsDashboardPage } = require('../page_object/AllProjectsDashboardPage')
 const { ProjectDashboardPage } = require('../page_object/ProjectDashboardPage')
+const { GroupsPage } = require('../page_object/GroupsPage')
 
 class POManager {
 
@@ -17,6 +18,7 @@ class POManager {
         this.opsportalpage = new OpsPortalPage(page)
         this.allprojectsdashboardpage = new AllProjectsDashboardPage(page)
         this.projectdashboardpage = new ProjectDashboardPage(page)
+        this.groupspage = new GroupsPage(page)
     }
 
 
@@ -30,30 +32,29 @@ class POManager {
         return this.materialpage;
     }
 
-    getCertificatesPage()
-    {
+    getCertificatesPage() {
         return this.certificatespage;
 
     }
 
-    getProjectPhotosPage()
-    {
+    getProjectPhotosPage() {
         return this.projectphotospage;
     }
 
-    getOpsPortalPage()
-    {
+    getOpsPortalPage() {
         return this.opsportalpage;
     }
 
-    getAllProjectsDashboardPage()
-    {
+    getAllProjectsDashboardPage() {
         return this.allprojectsdashboardpage;
     }
 
-    getProjectDashboardPage()
-    {
+    getProjectDashboardPage() {
         return this.projectdashboardpage;
+    }
+
+    getGroupsPage() {
+        return this.groupspage;
     }
 }
 
